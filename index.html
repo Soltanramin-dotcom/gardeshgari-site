@@ -1,1 +1,187 @@
 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="معرفی تورهای طبیعت‌گردی و سفرهای گروهی">
+  <title>راه سبز | تورهای طبیعت‌گردی</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f6f8f4;
+      color: #24352b;
+      line-height: 1.9;
+    }
+    header {
+      background: #174c37;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header a { color: white; text-decoration: none; }
+    .hero {
+      padding: 65px 7%;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, #174c37, #4f8964);
+    }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); }
+    .hero p { font-size: 17px; }
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 22px;
+      background: #e9b949;
+      color: #24352b;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    main { max-width: 1050px; margin: auto; padding: 28px 18px; }
+    h2 { text-align: center; margin: 20px 0; }
+    .tours {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 18px #183d2410;
+    }
+    .picture {
+      font-size: 48px;
+      background: #e5eee2;
+      text-align: center;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .price { color: #23724c; font-weight: bold; }
+    form {
+      max-width: 520px;
+      margin: 25px auto;
+      background: white;
+      padding: 22px;
+      border-radius: 16px;
+    }
+    label { display: block; margin-top: 12px; }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccd5cd;
+      border-radius: 8px;
+      font: inherit;
+      background: white;
+    }
+    form .btn { margin-top: 18px; width: 100%; }
+    footer {
+      background: #173c2d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>🌿 راه سبز</strong>
+    <a href="#tours">تورهای ما</a>
+    <a href="#register">ثبت‌نام</a>
+  </header>
+
+  <section class="hero">
+    <h1>طبیعت را زندگی کن!</h1>
+    <p>با ما از مسیرهای تازه، جنگل‌های سبز و سفرهای به‌یادماندنی لذت ببر.</p>
+    <a class="btn" href="#tours">مشاهده تورها</a>
+  </section>
+
+  <main>
+    <h2 id="tours">تورهای پیش رو</h2>
+    <section class="tours">
+      <article class="card">
+        <div class="picture">🌲</div>
+        <h3>جنگل‌گردی</h3>
+        <p>پیاده‌روی در مسیرهای جنگلی و لذت از هوای پاک.</p>
+        <p>مدت: یک روز</p>
+        <p class="price">قیمت: پس از هماهنگی</p>
+        <button class="btn" onclick="chooseTour('جنگل‌گردی')">ثبت‌نام در تور</button>
+      </article>
+
+      <article class="card">
+        <div class="picture">⛰️</div>
+        <h3>کوهستان‌گردی</h3>
+        <p>کشف مناظر کوهستانی با همراهی راهنمای تور.</p>
+        <p>مدت: یک روز</p>
+        <p class="price">قیمت: پس از هماهنگی</p>
+        <button class="btn" onclick="chooseTour('کوهستان‌گردی')">ثبت‌نام در تور</button>
+      </article>
+
+      <article class="card">
+        <div class="picture">🏞️</div>
+        <h3>طبیعت‌گردی شمال</h3>
+        <p>سفری گروهی برای کشف چشم‌اندازهای طبیعی.</p>
+        <p>مدت: دو روز</p>
+        <p class="price">قیمت: پس از هماهنگی</p>
+        <button class="btn" onclick="chooseTour('طبیعت‌گردی شمال')">ثبت‌نام در تور</button>
+      </article>
+    </section>
+
+    <h2 id="register">درخواست ثبت‌نام</h2>
+    <p style="text-align:center">
+      اطلاعاتت را وارد کن تا برای هماهنگی تور با تو تماس بگیریم.
+    </p>
+
+    <form id="tourForm">
+      <label for="name">نام و نام خانوادگی</label>
+      <input id="name" name="name" required>
+
+      <label for="phone">شماره تماس</label>
+      <input id="phone" name="phone" type="tel"
+        inputmode="tel" required>
+
+      <label for="tour">تور مورد نظر</label>
+      <select id="tour" name="tour" required>
+        <option value="">یک تور انتخاب کن</option>
+        <option>جنگل‌گردی</option>
+        <option>کوهستان‌گردی</option>
+        <option>طبیعت‌گردی شمال</option>
+      </select>
+
+      <button class="btn" type="submit">ثبت درخواست</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>راه سبز | سفر مسئولانه، طبیعت ماندگار 🌱</p>
+    <p>برای اطلاعات بیشتر، با برگزارکننده تور تماس بگیرید.</p>
+  </footer>
+
+  <script>
+    function chooseTour(tour) {
+      document.getElementById('tour').value = tour;
+      document.getElementById('register').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    document.getElementById('tourForm').addEventListener('submit',
+      function(event) {
+        event.preventDefault();
+        alert('این نسخه آزمایشی است؛ درخواست شما ذخیره نشد. برای ثبت‌نام واقعی باید فرم به یک سرویس متصل شود.');
+      }
+    );
+  </script>
+</body>
+      </html>
+
